@@ -27,22 +27,40 @@ export default function AddTodoForm({ maxReached }: Props) {
 
   const isDark = theme === "dark";
   const isOcean = theme === "ocean";
+  const isGalaxy = theme === "galaxy";
+  const isSunset = theme === "sunset";
 
   const cardBg = isDark
     ? "#1e293b"
     : isOcean
     ? "rgba(255,255,255,0.12)"
+    : isGalaxy
+    ? "rgba(30, 27, 75, 0.4)"
+    : isSunset
+    ? "#fffcf0"
     : "#ffffff";
 
   const inputBg = isDark
     ? "#0f172a"
     : isOcean
     ? "rgba(255,255,255,0.9)"
+    : isGalaxy
+    ? "rgba(0, 0, 0, 0.3)"
+    : isSunset
+    ? "#ffffff"
     : "#ffffff";
 
-  const textColor = isDark || isOcean ? "#f8fafc" : "#0f172a";
-  const subTextColor = isDark || isOcean ? "#cbd5e1" : "#475569";
-  const borderColor = isDark ? "#334155" : isOcean ? "#7dd3fc" : "#e5e7eb";
+  const textColor = isDark || isGalaxy ? "#f8fafc" : "#0f172a";
+  const subTextColor = isDark || isGalaxy ? "#cbd5e1" : "#475569";
+  const borderColor = isDark
+    ? "#334155"
+    : isOcean
+    ? "#7dd3fc"
+    : isGalaxy
+    ? "#6366f1"
+    : isSunset
+    ? "#fcd34d"
+    : "#e5e7eb";
 
   const onSubmit = async (data: FormValues) => {
     if (maxReached || isMining) return;

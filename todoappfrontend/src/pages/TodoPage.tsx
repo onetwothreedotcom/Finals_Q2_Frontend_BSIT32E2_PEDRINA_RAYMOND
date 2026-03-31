@@ -9,29 +9,52 @@ export default function TodoPage() {
 
   const isDark = theme === "dark";
   const isOcean = theme === "ocean";
+  const isGalaxy = theme === "galaxy";
+  const isSunset = theme === "sunset";
 
-  const textColor = isDark || isOcean ? "#f8fafc" : "#0f172a";
-  const subTextColor = isDark || isOcean ? "#cbd5e1" : "#475569";
+  // Light, Sunset, and Ocean should use dark text, others use light text
+  const textColor = isDark || isGalaxy ? "#f8fafc" : "#0f172a";
+  const subTextColor = isDark || isGalaxy ? "#cbd5e1" : "#475569";
 
   const heroBg = isDark
     ? "linear-gradient(135deg, #0f172a, #1e293b)"
     : isOcean
     ? "linear-gradient(135deg, rgba(14,165,233,0.28), rgba(255,255,255,0.12))"
+    : isGalaxy
+    ? "linear-gradient(135deg, #1e1b4b, #312e81, #581c87)"
+    : isSunset
+    ? "linear-gradient(135deg, #fff7ed, #ffedd5, #fef3c7)"
     : "linear-gradient(135deg, #eff6ff, #ffffff)";
 
   const cardBg = isDark
     ? "#1e293b"
     : isOcean
     ? "rgba(255,255,255,0.12)"
+    : isGalaxy
+    ? "rgba(30, 27, 75, 0.6)"
+    : isSunset
+    ? "#fffcf0"
     : "#ffffff";
 
   const softCardBg = isDark
     ? "#0f172a"
     : isOcean
     ? "rgba(255,255,255,0.08)"
+    : isGalaxy
+    ? "rgba(0, 0, 0, 0.2)"
+    : isSunset
+    ? "#fef9c3"
     : "#f8fafc";
 
-  const borderColor = isDark ? "#334155" : isOcean ? "#7dd3fc" : "#e5e7eb";
+  const borderColor = isDark
+    ? "#334155"
+    : isOcean
+    ? "#7dd3fc"
+    : isGalaxy
+    ? "#6366f1"
+    : isSunset
+    ? "#fcd34d"
+    : "#e5e7eb";
 
   const activeTodos = todos.filter((t) => !t.completed);
   const completedTodos = todos.filter((t) => t.completed);

@@ -15,16 +15,31 @@ export default function TodoItem({ todo }: Props) {
 
   const isDark = theme === "dark";
   const isOcean = theme === "ocean";
+  const isGalaxy = theme === "galaxy";
+  const isSunset = theme === "sunset";
 
   const cardBg = isDark
     ? "#1e293b"
     : isOcean
     ? "rgba(255,255,255,0.12)"
+    : isGalaxy
+    ? "rgba(30, 27, 75, 0.4)"
+    : isSunset
+    ? "#fffcf0"
     : "#ffffff";
 
-  const borderColor = isDark ? "#334155" : isOcean ? "#7dd3fc" : "#e5e7eb";
-  const headingColor = isDark || isOcean ? "#f8fafc" : "#0f172a";
-  const textColor = isDark || isOcean ? "#cbd5e1" : "#475569";
+  const borderColor = isDark
+    ? "#334155"
+    : isOcean
+    ? "#7dd3fc"
+    : isGalaxy
+    ? "#6366f1"
+    : isSunset
+    ? "#fcd34d"
+    : "#e5e7eb";
+
+  const headingColor = isDark || isGalaxy ? "#f8fafc" : "#0f172a";
+  const textColor = isDark || isGalaxy ? "#cbd5e1" : "#475569";
 
   const activeTodos = todos
     .filter((t) => !t.completed)

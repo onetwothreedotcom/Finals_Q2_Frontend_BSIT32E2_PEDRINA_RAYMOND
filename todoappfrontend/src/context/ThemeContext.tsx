@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
-type Theme = "light" | "dark" | "ocean";
+type Theme = "light" | "dark" | "ocean" | "galaxy" | "sunset";
 
 type ThemeContextType = {
   theme: Theme;

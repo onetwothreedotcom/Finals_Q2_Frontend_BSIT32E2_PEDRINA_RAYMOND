@@ -7,7 +7,9 @@ export default function TodoList() {
   const { theme } = useTheme();
 
   const textColor =
-    theme === "dark" || theme === "ocean" ? "#f8fafc" : "#0f172a";
+    theme === "dark" || theme === "galaxy"
+      ? "#f8fafc"
+      : "#0f172a";
 
   if (todos.length === 0) {
     return <p style={{ color: textColor }}>No todos yet.</p>;
