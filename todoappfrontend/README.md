@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+Here’s a shorter version with the updated author:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# 🌐 Todo App – Finals_Q2 (Frontend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Frontend of a Todo app built with **React + TypeScript (Vite)**.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 🚀 Overview
 
-## Expanding the ESLint configuration
+Users can:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Create, update, and delete todos
+* Manage task status (Focus-Flow system)
+* Detect backend tampering
+* Perform proof-of-work before submission
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 🧩 Architecture
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **Pages:** TodoPage, AboutPage
+* **Components:** TodoList, TodoItem, AddTodoForm, EditTodoModal
+* **State:** Context API (TodoContext)
+* **Hook:** useTodos
+
+**Patterns:** Component-based design, global state, custom hooks, immutable updates
+
+---
+
+# ⚙️ Setup
+
+```bash
+cd TodoAppFrontend
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run at: [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 📦 Dependencies
+
+* react-router-dom → Routing
+* react-hook-form → Form handling
+
+---
+
+# 🔥 Features
+
+* Routing with React Router
+* Context API state management
+* Form validation (react-hook-form)
+* Immutable updates
+* Theming
+
+---
+
+# 🧠 Advanced
+
+**Focus-Flow:**
+
+* Max 5 active tasks
+* FIFO completion
+* Auto-delete after 15s
+
+**Blockchain Validation:**
+
+* Calls `/verify`
+* Shows “REDACTED / TAMPERED” if invalid
+
+**Proof-of-Work:**
+
+* `SHA256(title | nonce)` starts with "00"
+* Computed on frontend, verified by backend
+
+---
+
+# 🧪 Fixes
+
+* Correct delete using `id`
+* Correct update using `.map()`
+* Proper key usage (`t.id`)
+
+---
+
+# 📌 Summary
+
+A modern React frontend with clean state management, efficient forms, and advanced validation.
+
+---
+
+# 👨‍💻 Author
+
+**Raymond O. Pedriña**
